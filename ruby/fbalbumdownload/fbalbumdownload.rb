@@ -2,23 +2,17 @@
 
 #####################################################################################
 # This will download all pictures in an album (in original size) from Facebook.     #
-# input requires:                                                                   #
-#  - accessToken     your Facebook's Access Token from                              #
-#                    https://developers.facebook.com/tools/explorer?method=GET      #
-#  - album id        facebook album id (first number on the album link), ex.        #
-#                    "https://www.facebook.com/media/set/?                          #
-#                    set=a.10150254102782693.323496.655452692" is 10150254102782693 #
+# Restriction: availble for public album only                                       #
 #-----------------------------------------------------------------------------------#
 # Auther: ptantiku                                                                  #
 #-----------------------------------------------------------------------------------#
 #####################################################################################
 
-# https://www.facebook.com/dialog/oauth?response_type=token&display=popup&client_id=145634995501895&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer%2Fcallback&scope=user_photos
-
 require 'net/http'
 require 'net/https'
 
 if ARGV.size < 3
+    puts "This will download all pictures in an public album from Facebook."
     puts "USAGE: ./fbalbumdownload.rb [album id] [access token] [filter]"
     puts " album id:     first number group from the album's URL"
     puts "               for ex. http://www.facebook.com/media/set/?set=a.XXX.YYY.ZZZ"
