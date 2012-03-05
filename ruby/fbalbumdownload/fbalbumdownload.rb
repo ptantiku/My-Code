@@ -2,7 +2,7 @@
 
 #####################################################################################
 # This will download all pictures in an album (in original size) from Facebook.     #
-# Restriction: availble for public album only                                       #
+# Restriction: availble for public albums only                                      #
 #-----------------------------------------------------------------------------------#
 # Auther: ptantiku                                                                  #
 #-----------------------------------------------------------------------------------#

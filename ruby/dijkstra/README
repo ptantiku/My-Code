@@ -1,0 +1,6 @@
+A prototype of implementation of Dijkstra's shortest path algorithm.
+
+The graph and its values are from 
+http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html
+
+Author: Ptantiku
