@@ -1,0 +1,10 @@
+A Ruby script for expanding the shortened URL link.
+This works by:
+    1. Try to connect to the link.
+    2. Capture the HTTP Header, no need to download HTML body
+    3. If the link is redirection link(i.e. shortened link), 
+       HTTP Header will have status 3XX (300-399)
+    4. Redirected URL will be in the field, 'Location'
+    5. Repeat step 1-5 again until the link is not redirection link
+    
+Author: Ptantiku
