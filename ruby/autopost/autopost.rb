@@ -15,24 +15,23 @@ def random_string
 end
 
 if ARGV.include?('-h') or ARGV.length < 2 
-    puts "./autopost [URL] [fields [field]...]"
+    puts './autopost [URL] [fields [field]...]'
+    puts 'example: ./autopost http://127.0.0.1/login.php email password'
     exit
 end
 
 url = URI.parse(ARGV[0])
-fields = ARGV[1..ARGV.length]
-
-sleepTime = 1.0;
+fields = ARGV[1..-1]    #all the rest params
+sleepTime = 1.0;        #sleep 1 second
 count = 1;
 http = Net::HTTP.new(url.host,80)
-while( true ) do 
-    
-	data = fields.collect{ |field|
-	    if field =~ /email/i
-	        email = 
-        "#{field}=" + random_string() + ['@hotmail.com','@gmail.com','@facebook.com','@windowslive.com'].choice
+while( true ) do
+    data = fields.collect{ |field|
+        if field =~ /email/i
+            suffix = ['@hotmail.com','@gmail.com','@facebook.com','@windowslive.com'].choice
+            "#{field}=" + random_string() + suffix
         else
-	        "#{field}=#{random_string()}"
+            "#{field}=#{random_string()}"
 	    end
     }.join('&')
     
@@ -43,7 +42,7 @@ while( true ) do
 	resp = http.post(url.path,data,headers)
 	#puts resp.body   #not showing data
 	
-	sleep(sleepTime)
+	sleep(sleepTime)    #delay
 	puts "#{data} #{count}"
 	count = count + 1
 end
