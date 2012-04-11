@@ -1,0 +1,15 @@
+#####################################################################################
+# This will download all pictures in your multiply.                                 #
+# Pre-requisite: gem install json                                                   #
+# USAGE:                                                                            #
+#  ./multiplyphotodownload.rb [username] [password] [developer_api_key] [directory] [albumid] #
+#     username: your username or value xxxxx in  http://xxxxx.multiply.com/...      #
+#     password: your password.                                                      #
+#     developer_api_key: getting your own API key from                              #
+#                             http://multiply.com/apis/developer-key                #
+#     director(optional): directory to save photos to (default=current directory)   #
+#     albumid(optional): album id (default='all')                                   #
+#-----------------------------------------------------------------------------------#
+# Auther: ptantiku                                                                  #
+#-----------------------------------------------------------------------------------#
+#####################################################################################
