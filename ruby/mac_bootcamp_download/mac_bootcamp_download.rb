@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# Author: Anidear (anidear1@gmail.com)
+# Author: Anidear (anidear1 {at} gmail {dot} com)
 # My Blog: http://blog.anidear.com
 # Credit: http://blog.timvalenta.com/2011/11/19/boot-camp-driver-downloads/
 

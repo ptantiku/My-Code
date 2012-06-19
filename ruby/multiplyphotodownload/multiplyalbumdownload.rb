@@ -68,9 +68,9 @@ data = resp.body
 profile = JSON.parse data
 puts "[+] Name: " + profile['name'] #name = /"name":"([^"]*)"/.match(data)[1]
 puts "[+] Email: " + profile['email'] #email = /"email":"([^"]*)"/.match(data)[1]
-puts "[+] Albums: " + profile['num_photos'] #albums = /"num_photos":"([^"]*)"/.match(data)[1]
-puts "[+] Videos: " + profile['num_video'] #videos = /"num_video":"([^"]*)"/.match(data)[1]
-puts "[+] Musics: " + profile['num_music'] #musics = /"num_music":"([^"]*)"/.match(data)[1]
+puts "[+] Albums: " + profile['num_photos'].to_s #albums = /"num_photos":"([^"]*)"/.match(data)[1]
+puts "[+] Videos: " + profile['num_video'].to_s #videos = /"num_video":"([^"]*)"/.match(data)[1]
+puts "[+] Musics: " + profile['num_music'].to_s #musics = /"num_music":"([^"]*)"/.match(data)[1]
 puts '--------------------------------------------'
 
 total_albums = profile['num_photos'].to_i
