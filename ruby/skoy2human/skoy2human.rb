@@ -120,13 +120,14 @@ class Skoy2Human
     end
     
     def to_human(str)
-        #duplicate variable, so we can what's inside
+        # duplicate variable, so we can modify what's inside
         str = str.clone
         
         # find max from_word in DB
         max_from_word = @@db.keys.map{|s| s.length}.max
         
         i=0
+	# iterate through each character in str
         while i<str.length
             matched = false
             # try to translate with longest word first
@@ -148,13 +149,14 @@ class Skoy2Human
     end
     
     def to_skoy(str)
-        #duplicate variable, so we can what's inside
+        # duplicate variable, so we can modify what's inside
         str = str.clone
         
         # find max from_word in DB
         max_to_word = @@db.values.map{|s| s.length}.max
         
         i=0
+	# iterate through each character in str
         while i<str.length
             matched = false
             # try to translate with longest word first
@@ -181,7 +183,7 @@ end
 skoy2human = Skoy2Human.new
 input = ''
 while input!='exit'
-    print 'input word >'
+    print 'input word/sentence >'
     input = gets.chomp
     if input!='exit'
         # to skoy
