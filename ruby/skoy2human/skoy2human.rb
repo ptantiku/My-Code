@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-# Skoy2Human for translating between Skoy language and human language
-# แปลงภาษาสก๊อยให้เป็นภาษามนุษย์(ภาษาไทย)
-# author ptantiku
-
-# original author NarZe
-# original source code in Javascript at https://github.com/NarzE/toSkoy/blob/master/toskoy.js
+# Skoy2Human 
+# description: 	for translating between Skoy language and human language
+# 		แปลงภาษาสก๊อยให้เป็นภาษามนุษย์(ภาษาไทย)
+# author: ptantiku
+#
+# credit:
+# 	This code is derived from Javascript code from 
+#	 NarZe (https://github.com/NarzE/toSkoy/blob/master/toskoy.js)
+#
 
 class Skoy2Human
     @@db = Hash.new
