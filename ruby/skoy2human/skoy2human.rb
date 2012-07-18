@@ -1,15 +1,17 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-# Skoy2Human 
-# description: 	for translating between Skoy language and human language
-# 		แปลงภาษาสก๊อยให้เป็นภาษามนุษย์(ภาษาไทย)
-# author: ptantiku
-#
-# credit:
-# 	This code is derived from Javascript code from 
-#	 NarZe (https://github.com/NarzE/toSkoy/blob/master/toskoy.js)
-#
+###################################################################
+# Skoy2Human                                                      #
+# description:                                                    #
+#   for translating between Skoy language and human language      #
+#   แปลงภาษาสก๊อยให้เป็นภาษามนุษย์(ภาษาไทย)                            #
+# author: ptantiku                                                #
+#                                                                 #
+# credit:                                                         #
+#   This code is derived from Javascript code from                #
+#   NarZe (https://github.com/NarzE/toSkoy/blob/master/toskoy.js) #
+###################################################################
 
 class Skoy2Human
     @@db = Hash.new
@@ -95,10 +97,10 @@ class Skoy2Human
         # https://www.facebook.com/jarpichit/posts/10150956179953379
         'ฮิ๊,พ๊ก,ธิ๊ฆ์,ใช๊,พ๊ษ๊,สก๊อยซ์,ฯิ๊่,แฒ่ง,ใช๊,ไม๊,ไฎ๊,เร่ย,ธำไฒ,พ๊ก,ฒึง,ถึง,ใช๊,ภ๊ษ๊,วิบัฏิ,ว๊,พ๊ซ์ก,ฒึง,ไม๊,เฆ๊๊,ใจ,'+
         'หร๊,ว่,ภ๊ษ๊,ไธญ,ธิ๊ฆ์,ษืบ,ธอฎ,ม่,ฏั๊ง,ต่,ษฒัย,ภ่ฮ,ฆุณ,ร๊ฒ,คำ,แหง,ฒห๊ษ์า,ร๊ช,ฒัล,ษวญ,ง๊ฒ,แล๊,น่๊,อนุ,รัขษ์,ไว๊,'+
-        'ชั่ว,ลุ๊ก,ชั่ว,หล๊น,ฆณษ์าฎ,ไหฯ,ถ๊๊,พ๊ก,มึง,มรั๊ล์ย,รัข,พ๊ษ๊,ไธญ,ก่,ไษ,หัว,ออก,ปั๊บ์ยซ์,จ๊ก,ปร๊เธศ,ไธญ,เร่รร,ปั๊บ์ย๊'=>
+        'ชั่ว,ลุ๊ก,ชั่ว,หล๊น,ฆณษ์าฎ,ไหฯ,ถ๊๊,พ๊ก,มึง,มรั๊ล์ย,รัข,พ๊ษ๊,ไธญ,ก่,ไษ,หัว,ปั๊บ์ยซ์,จ๊ก,ปร๊เธศ,ไธญ,เร่รร,ปั๊บ์ย๊'=>
         'อี,พวก,ที่,ใช้,ภาษา,สก๊อย,นี่,แม่ง,ใช้,ไม่,ได้,เลย,ทำไม,พวก,มึง,ถึง,ใช้,ภาษา,วิบัติ,วะ,พวก,มึง,ไม่,เข้า,ใจ,'+
         'เหรอ,ว่า,ภาษา,ไทย,ที่,สืบ,ทอด,มา,ตั้ง,แต่,สมัย,พ่อ,ขุน,ราม,คำ,แหง,มหา,ราช,มัน,สวย,งาม,และ,น่า,อนุ,รักษ์,ไว้,'+
-        'ชั่ว,ลูก,ชั่ว,หลาน,ขนาด,ไหน,ถึง,พวก,มึง,ไม่,รัก,ภาษา,ไทย,ก็,ไส,หัว,ออก,ไป,จาก,ประเทศ,ไทย,เลย,ไป',
+        'ชั่ว,ลูก,ชั่ว,หลาน,ขนาด,ไหน,ถึง,พวก,มึง,ไม่,รัก,ภาษา,ไทย,ก็,ไส,หัว,ไป,จาก,ประเทศ,ไทย,เลย,ไป',
 
         #https://www.facebook.com/photo.php?fbid=334536956632235&set=a.331998016886129.77388.276072715811993
         'รุ๊น์ผ,ณิ๊,ม่,ชั๊บ์ย,ฮ์อษ์าหั๊ล์ฯ,๗ิง,น๊,นุ๊ล์ว,แฆ่,ฬอ.,แฏ่ส์ง,รุ๊ผ,เฬอ่น,ม่,รุ๊ล์ว,ว่,จ่,ฮ์อษ์อก,ม๊,เมิธ์่ล,จิ๊.,น่,ธารณ์,ฅนั๊จ,นิ๊'=>
@@ -135,7 +137,7 @@ class Skoy2Human
         max_from_word = @@db.keys.map{|s| s.length}.max
         
         i=0
-	# iterate through each character in str
+		# iterate through each character in str
         while i<str.length
             matched = false
             # try to translate with longest word first
@@ -146,12 +148,12 @@ class Skoy2Human
                     to = @@db[from]
                     #puts "==> translate #{from} to #{to}"
                     str[i,j] = to
-                    i += to.length
+					i += to.length	# skip to next character
                     matched = true
                     break
                 end
             end
-            i+=1 if !matched
+			i+=1 if !matched	# go to next character if no word is matched
         end
         str
     end
@@ -169,19 +171,18 @@ class Skoy2Human
             matched = false
             # try to translate with longest word first
             max_to_word.downto(1).each do |j|
-	       #puts "j=#{j}: '#{str[i,j]}'"
                 next if (i+j-1) >= str.length  # do not go into the loop
                 to = str[i,j]
                 if @@db.has_value?(to)
                     from = @@db.key(to)
                     #puts "==> translate #{to} to #{from}"
                     str[i,j] = from
-                    i += from.length
+                    i += from.length	# skip to next character
                     matched = true
                     break
                 end
             end
-            i+=1 if !matched
+            i+=1 if !matched	# go to next character if no word is matched
         end
         str
     end
@@ -191,17 +192,17 @@ end
 skoy2human = Skoy2Human.new
 input = ''
 while input!='exit'
-    print 'input word/sentence >'
-    input = gets.chomp
-    if input!='exit'
-        # to skoy
-        #skoy_word = skoy2human.to_skoy(input)
-        #puts "To skoy ===> #{skoy_word}"
-        
-        # to human
-        human_word = skoy2human.to_human(input)
-        puts "To human ===> #{human_word}"
-    end
-    puts
+	print 'input word/sentence >'
+	input = gets.chomp
+	if input!='exit'
+    	# to skoy
+		# skoy_word = skoy2human.to_skoy(input)
+		# puts "To skoy ===> #{skoy_word}"
+
+		# to human
+		human_word = skoy2human.to_human(input)
+		puts "To human ===> #{human_word}"
+	end
+	puts
 end
 
