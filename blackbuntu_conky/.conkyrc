@@ -66,12 +66,16 @@ ${color FF6600}${goto 50}RAM
 ${color FFFFFF}${goto 75}${voffset 23}${swapperc}%
 ${color FF6600}${goto 75}Swap
 ${color FFFFFF}${goto 100}${voffset 23}${fs_used_perc /}%
+${color FFFFFF}${goto 100}${fs_used_perc /storage/}%
 ${color FF6600}${goto 100}Disk
+${color FFFFFF}${goto 125}${voffset 12}${downspeed eth0}
+${color FFFFFF}${goto 125}${upspeed eth0}
+${color FF6600}${goto 125}Net
 
-${voffset -5}${color FF6600}${font caviar dreams:size=10} IP ADDRESSES${font}
-${color FF6600}${font caviar dreams:size=7} LAN:${color FFFFFF}${goto 30}${addr eth0}${font}${color FFFFFF}${goto 125}${downspeed eth0}
-${color FF6600}${font caviar dreams:size=7} WIFI:${color FFFFFF}${goto 30}${addr wlan0}${font}${color FFFFFF}${goto 125}${upspeed eth0}
-${color FF6600}${font caviar dreams:size=7} WAN:${color FFFFFF}${goto 30}${pre_exec curl ifconfig.me/ip}${font}${color FF6600}${goto 125}Net
+${voffset -57}${color FF6600}${font caviar dreams:size=10} IP ADDRESSES${font}
+${color FF6600}${font caviar dreams:size=7} LAN:${color FFFFFF}${goto 30}${addr eth0}${font}
+${color FF6600}${font caviar dreams:size=7} WIFI:${color FFFFFF}${goto 30}${addr wlan0}${font}
+${color FF6600}${font caviar dreams:size=7} WAN:${color FFFFFF}${goto 30}${pre_exec curl ifconfig.me/ip}${font}
 
 ${color FF6600}${font caviar dreams:size=10} PROCESSES${font}${color FFFFFF}${font caviar dreams:size=8}
 ${top pid 1}${goto 35}${top name 1}${goto 135}${top cpu 1}${goto 165}${top mem 1}

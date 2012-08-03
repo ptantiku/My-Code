@@ -156,7 +156,21 @@ settings_table = {
         start_angle=-90,
         end_angle=180
     },
-        {
+	{
+		name='fs_used_perc',
+		arg='/storage/',
+		max=100,
+		bg_colour=0xffffff,
+		bg_alpha=0.2,
+		fg_colour=0xFF6600,
+		fg_alpha=0.4,
+		x=125, y=450,
+		radius=20,
+		thickness=5,
+		start_angle=-90,
+		end_angle=180
+	},
+    {
         name='downspeedf',
         arg='eth0',
         max=100,
@@ -170,13 +184,13 @@ settings_table = {
         start_angle=-90,
         end_angle=180
     },
-        {
+    {
         name='upspeedf',
         arg='eth0',
         max=100,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0xff6600,
+        fg_colour=0xFF6600,
         fg_alpha=0.8,
         x=150, y=500,
         radius=20,
