@@ -1,0 +1,88 @@
+# Conky settings #
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+# Window specifications #
+
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 200 250
+maximum_width 200
+
+alignment tr
+gap_x 35
+gap_y 55
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont caviar dreams:size=8
+xftalpha 0.5
+
+uppercase no
+
+temperature_unit celsius
+
+
+default_color FFFFFF
+
+# Lua Load  #
+lua_load ~/.lua/scripts/clock_rings.lua
+lua_draw_hook_pre clock_rings
+
+TEXT
+${voffset 8}${color FF6600}${font caviar dreams:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font caviar dreams:size=38}${time %e}${font}
+${color FFFFFF}${voffset -30}${color FFFFFF}${font caviar dreams:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font caviar dreams:size=20}${time %Y}${font}${color FF6600}${hr}
+${voffset 140}${font caviar dreams:size=10}${alignr}HOME${font}
+${font caviar dreams:size=12}${color FFFFFF}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30} °C${font}
+${image ~/.conky/blackbuntu_logo.png -p 10,217 -s 130x30}
+
+${color FFFFFF}${goto 25}${voffset 35}${cpu cpu0}%
+${color FF6600}${goto 25}CPU
+${color FFFFFF}${goto 50}${voffset 23}${memperc}%
+${color FF6600}${goto 50}RAM
+${color FFFFFF}${goto 75}${voffset 23}${swapperc}%
+${color FF6600}${goto 75}Swap
+${color FFFFFF}${goto 100}${voffset 23}${fs_used_perc /}%
+${color FF6600}${goto 100}Disk
+
+${voffset -5}${color FF6600}${font caviar dreams:size=10} IP ADDRESSES${font}
+${color FF6600}${font caviar dreams:size=7} LAN:${color FFFFFF}${goto 30}${addr eth0}${font}${color FFFFFF}${goto 125}${downspeed eth0}
+${color FF6600}${font caviar dreams:size=7} WIFI:${color FFFFFF}${goto 30}${addr wlan0}${font}${color FFFFFF}${goto 125}${upspeed eth0}
+${color FF6600}${font caviar dreams:size=7} WAN:${color FFFFFF}${goto 30}${pre_exec curl ifconfig.me/ip}${font}${color FF6600}${goto 125}Net
+
+${color FF6600}${font caviar dreams:size=10} PROCESSES${font}${color FFFFFF}${font caviar dreams:size=8}
+${top pid 1}${goto 35}${top name 1}${goto 135}${top cpu 1}${goto 165}${top mem 1}
+${top pid 2}${goto 35}${top name 2}${goto 135}${top cpu 2}${goto 165}${top mem 2}
+${top pid 3}${goto 35}${top name 3}${goto 135}${top cpu 3}${goto 165}${top mem 3}
+${top pid 4}${goto 35}${top name 4}${goto 135}${top cpu 4}${goto 165}${top mem 4}
+${top pid 5}${goto 35}${top name 5}${goto 135}${top cpu 5}${goto 165}${top mem 5}
+${top pid 6}${goto 35}${top name 6}${goto 135}${top cpu 6}${goto 165}${top mem 6}
+${top pid 7}${goto 35}${top name 7}${goto 135}${top cpu 7}${goto 165}${top mem 7}
+${voffset 5}${color FF6600}${font caviar dreams:size=8} Uptime: ${color FFFFFF}${uptime_short} ${alignr}${color FF6600}${font caviar dreams:size=8}Processes: ${color FFFFFF}${processes}
+
+${color FF6600}${font caviar dreams:size=8}${alignr}${nodename}
+${color FF6600}${font caviar dreams:size=8}${alignr}${pre_exec cat /etc/issue.net}  $machine
+${color FF6600}${font caviar dreams:size=8}${alignr}Kernel: ${kernel}
