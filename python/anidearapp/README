@@ -1,0 +1,7 @@
+# By Anidear
+#
+# To update the code to Google App run:
+# /opt/google_appengine/appcfg.py --email=[email@gmail.com] update anidearapp/
+#
+# @see https://developers.google.com/appengine/docs/python/tools/uploadinganapp
+# for detail in deployment
