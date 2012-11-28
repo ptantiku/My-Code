@@ -1,0 +1,23 @@
+config:
+  timeout: 10
+
+sites:
+- 
+  name: Eztv
+  keywords:
+    - leverage
+    - the mentalist
+    - fringe
+    - merlin
+    - supernatural
+    - nikita
+    - scam city
+    - alphas
+
+- 
+  name: Manga Reader
+  keywords:
+    - one piece
+    - naruto
+    - bleach
+    - fairy tail

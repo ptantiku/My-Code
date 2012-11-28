@@ -1,0 +1,6 @@
+Series Monitor: monitoring series or manga specified in config.yml file
+Author: ptantiku
+Required Packages: 
+	- 'libnotify' (use 'gem install libnotify' to install)
+	- 'libnotify-bin','libnotify-dev' (use 'sudo apt-get install libnotify-bin libnotify-dev -y' to install)
+
