@@ -12,14 +12,13 @@ require 'open-uri'
 require 'yaml'
 require 'rubygems'
 require 'libnotify'
-require './fetchsite.rb'
+require_relative 'fetchsite'
 
 # global DEBUG
 $debug = false
 
 # load config
-config = YAML.load_file('config.yml')
-puts config.inspect
+config = YAML.load_file(File.dirname(__FILE__)+'/config.yml')
 
 # for each site, load data
 config['sites'].each do |site|
@@ -31,7 +30,7 @@ config['sites'].each do |site|
 	# load plugin
 	fetch_class_file = "fetch_#{site['name'].downcase.split.join('_')}";
 	fetch_class_name = fetch_class_file.split(/_/).map(&:capitalize).join
-	require "./plugins/#{fetch_class_file}.rb"
+	require_relative "plugins/#{fetch_class_file}"
 	fetch_class = Kernel.const_get(fetch_class_name)
 
 	# fetch page and filter by keywords for results
