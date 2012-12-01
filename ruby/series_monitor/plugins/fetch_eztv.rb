@@ -10,10 +10,10 @@ class FetchEztv < FetchSite
 	    return [] if response.nil?
 
 	    results = []
-	    response.scan(%r{class="epinfo">([^<]*)</a>[^<]*</td>[^<]*<td[^>]*>[^<]*<a href="(magnet:[^"]*)"}) do |title,link|
+	    response.scan(%r{a href="([^">]*)"[^>]*class="epinfo">([^<]*)</a>}) do |link,title|
 	    	keywords.each do |keyword|
 	    		if title =~ Regexp.new(keyword,true) #case insensitive
-	    			results << {title: title, link: link}
+	    			results << {title: title, link: @url+link}
 	    		end
 	    	end
 		end

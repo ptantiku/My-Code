@@ -44,7 +44,8 @@ config['sites'].each do |site|
 			puts ''
 			Libnotify.show(
 				:summary => result[:title], 
-				:body => "Click on <a href=\"#{result[:link].gsub('&','%38')}\">LINK</a> to see/download.",
+				#:body => "Click on <a href=\"#{result[:link].gsub('&','%38')}\">LINK</a> to see/download.",
+				:body => "Click on <a href=\"#{result[:link]}\">LINK</a> to see/download.",
 				:timeout => config['config']['timeout'], 
 				:urgency => :low)
 		end
