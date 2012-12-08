@@ -54,7 +54,7 @@ list.each{|key|
 
 # instruction
 puts 'INSTRUCTIONS: '
-puts '1. Go to "Apple menu" -> "About this Mac" -> "More Info…" -> "Hardware"'
+puts '1. Go to "Apple menu" -> "About this Mac" -> "More Info…" -> "System Report..." -> "Hardware"'
 puts '   to see what model your mac is.'
 puts '2. Match your model with the download link above and download it'
 puts '3. Use 7zip application to extract the pkg file'

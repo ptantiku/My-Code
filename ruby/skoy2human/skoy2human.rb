@@ -195,9 +195,9 @@ while input!='exit'
 	print 'input word/sentence >'
 	input = gets.chomp
 	if input!='exit'
-    	# to skoy
-		# skoy_word = skoy2human.to_skoy(input)
-		# puts "To skoy ===> #{skoy_word}"
+		 	# to skoy
+		 skoy_word = skoy2human.to_skoy(input)
+		 puts "To skoy ===> #{skoy_word}"
 
 		# to human
 		human_word = skoy2human.to_human(input)
