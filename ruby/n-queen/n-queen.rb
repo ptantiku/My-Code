@@ -39,10 +39,15 @@ def check_a_new_queen_at(table,pos)
 =end
 
     #check queen
+    ### check same row
+    if table[row].inject(false){|sum,val| sum||=val} 
+        return true;
+    end
+    ### check other positions
     [*0...8].inject(false){|sum,r| 
         offset=(r-row).abs; 
         sum||=[col-offset, col, col+offset].inject(false){|sum2,c| 
-            (r!=row and c.between?(0,7))? sum2||=table[r][c] : sum2
+            c.between?(0,7) ? sum2||=table[r][c] : sum2
         }
     }
 end
@@ -65,7 +70,7 @@ best_count = 0
             table[new_queen_pos/8][new_queen_pos%8] = true
         end
     end
-    #print_table(table)
+    print_table(table)
 
     if (this_count=count_queen(table)) > best_count
         best_table = table
