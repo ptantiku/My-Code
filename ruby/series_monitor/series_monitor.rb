@@ -34,21 +34,25 @@ config['sites'].each do |site|
 	fetch_class = Kernel.const_get(fetch_class_name)
 
 	# fetch page and filter by keywords for results
-	results = fetch_class.new.fetch(site['keywords'])
-	if results.empty?
-		puts "[-] nothing matched."
-	else
-		results.each do |result|
-			puts "[+] #{result[:title]}"
-			puts ">>> #{result[:link]}"
-			puts ''
-			Libnotify.show(
-				:summary => result[:title], 
-				#:body => "Click on <a href=\"#{result[:link].gsub('&','%38')}\">LINK</a> to see/download.",
-				:body => "Click on <a href=\"#{result[:link]}\">LINK</a> to see/download.",
-				:timeout => config['config']['timeout'], 
-				:urgency => :low)
+	begin
+		results = fetch_class.new.fetch(site['keywords'])
+		if results.empty?
+			puts "[-] nothing matched."
+		else
+			results.each do |result|
+				puts "[+] #{result[:title]}"
+				puts ">>> #{result[:link]}"
+				puts ''
+				Libnotify.show(
+					:summary => result[:title], 
+					#:body => "Click on <a href=\"#{result[:link].gsub('&','%38')}\">LINK</a> to see/download.",
+					:body => "Click on <a href=\"#{result[:link]}\">LINK</a> to see/download.",
+					:timeout => config['config']['timeout'], 
+					:urgency => :low)
+			end
 		end
+	rescue
+		puts "Error occurs while fetching from #{site['name']}"
 	end
 
 	puts '*' * 50	# end site
