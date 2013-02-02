@@ -189,9 +189,9 @@ input_binary_block.each do |input_block|
 
 	#First permutation (PC1) 56bit
 	key_after_pc1 = PC1.map{|i| key_binary[i-1]}.join
-	#puts "KPC1:  #{key_after_pc1.scan(/.{7}/).join(' ')}"
+	puts "KPC1:  #{key_after_pc1.scan(/.{7}/).join(' ')}" if options[:verbose]
 	key_left, key_right = key_after_pc1[0...28], key_after_pc1[28...56]
-	#puts "CD[0]:  #{(key_left+key_right).scan(/.{7}/).join(' ')}"
+	puts "CD[0]:  #{(key_left+key_right).scan(/.{7}/).join(' ')}" if options[:verbose]
 
 	# 16 ITERATIONS OF
 	16.times do |round|

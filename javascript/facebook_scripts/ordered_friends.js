@@ -32,4 +32,4 @@ friend_element.innerHTML="";
 for(var i=0;i<friends.length;i++){
 	friend_element.innerHTML+='<div style="display:inline-block">'+(i+1)+':<br><a href="https://www.facebook.com/'+friends[i]+'" target="_blank"><img src="https://graph.facebook.com/'+friends[i]+'/picture"></a>';
 }
-_(body.insertBefore(friend_element,body.firstChild));	//_() for fix problem in IE
+_(body.insertBefore(friend_element,body.firstChild));
