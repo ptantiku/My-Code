@@ -8,13 +8,13 @@ sites:
     - leverage
     - the mentalist
     - fringe
-    - merlin
     - supernatural
     - nikita
     - scam city
     - alphas
     - vampire diaries
     - top gear
+    - white collar
 
 - 
   name: Manga Reader
@@ -24,3 +24,10 @@ sites:
     - bleach
     - fairy tail
     - ippo
+
+- 
+  name: Nyaa
+  keywords:
+    - one piece
+    - naruto
+    - bleach
