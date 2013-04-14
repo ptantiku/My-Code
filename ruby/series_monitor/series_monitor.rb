@@ -12,6 +12,7 @@ require 'open-uri'
 require 'yaml'
 require 'rubygems'
 require 'libnotify'
+require 'cgi'
 require_relative 'fetchsite'
 
 # global DEBUG
@@ -46,7 +47,9 @@ config['sites'].each do |site|
 				Libnotify.show(
 					:summary => result[:title], 
 					#:body => "Click on <a href=\"#{result[:link].gsub('&','%38')}\">LINK</a> to see/download.",
-					:body => "Click on <a href=\"#{result[:link]}\">LINK</a> to see/download.",
+					:body => "Click on <a href=\"#{CGI.escape(result[:link])}\">LINK</a> to see/download.",
+					#:body => ">>> #{CGI.escape(result[:link])}",
+					#:body => ">>> #{result[:link]}",
 					:timeout => config['config']['timeout'], 
 					:urgency => :low)
 			end
