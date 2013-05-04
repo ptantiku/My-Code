@@ -117,6 +117,16 @@ au BufWritePost .vimrc so ~/.vimrc
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" Mapping H,L as Home, End
+noremap H ^
+noremap L $
+
+" Move between windows with Ctrl+hjkl
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
 " ----------------FOR RUBY---------------------
 "  executing ruby script(when enable +ruby)
 map <f5> :w <CR>:!ruby % <CR>
