@@ -1,0 +1,44 @@
+Mirko has R number of red apples and G number of green apples. He wants to give them to his friends equally in each type of apples.
+
+For example:
+	Mirko has 4 red apples, and 8 green apples.
+	- if Mirko has 1 friend, his friend will receive 4 red and 8 green
+apples.
+	- if Mirko has 2 friends, each of his friends will receive 2 red and 4 green apples.
+	- if Mirko has 4 friends, each of his friends will receive 1 red and 2 green
+	  apples.
+
+INPUT:
+	First line of the file composes of 2 numbers - number of red apples(R) and
+number of green apples. 1 <= R,G <= 1,000,000,000
+
+OUTPUT:
+	In each case of dividing the apples, displays 3 values - N, X and Y on the
+same line.
+	- N: number of Mirko's friends	
+	- X: number of red apples for each friend
+	- Y: number of green apples for each friend
+
+CASE #1:
+	INPUT: 
+		4 8
+	OUTPUT: 
+		1 4 8
+		2 2 4
+		4 1 2
+
+CASE #2:
+	INPUT: 
+		15 12
+	OUTPUT: 
+		1 15 12
+		3 5 4
+
+CASE #3:
+	INPUT: 
+		42 105
+	OUTPUT: 
+		1 42 105
+		3 14 35
+		7 6 15
+		21 2 5
