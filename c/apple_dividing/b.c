@@ -29,7 +29,7 @@ int main(int argc, char** argv){
 
 	//loop: first half
 	max = gcd; 
-	for(i=1;i<=max;i++){
+	for(i=1;i<max;i++){
 		if(gcd%i==0) {
 			printf("%ld %ld %ld\n",i,r/i,g/i);
 			max = gcd/i;

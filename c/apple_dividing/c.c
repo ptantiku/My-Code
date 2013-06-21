@@ -57,13 +57,14 @@ int main(int argc, char** argv){
 	}
 	//printf("Break at %ld\n",i);
 	
-	//loop: second half
+	//if last==max, skip
 	if(ptr->value==max) {
 		temp_ptr = ptr;	
 		ptr = ptr->prev;
 		free(temp_ptr);
 	}
 	
+	//loop: second half
 	while(ptr!=NULL){
 		temp = gcd/ptr->value; 
 		printf("%ld %ld %ld\n",temp,r/temp,g/temp);
