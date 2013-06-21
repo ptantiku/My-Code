@@ -1,0 +1,52 @@
+Problem:
+	In a meeting room, there is a big windows size WxH. In Summer, students try to
+	reduce heat by installing n filter curtains at many positions on the windows.
+
+	The curtains have different widths but all are higher than heights of windows.
+
+	Each curtain can filter heat from sun ray by 50%; therefore, any areas on the
+	windows that covered by two or more curtains will be 100% protection from sun ray. However, the number of curtains and their hanging positions depends on the students.
+
+	Example in the Figure below is for a 7x3 window, there are curtains hanging in
+	layers.
+
+		[ |_|#|_| |___]_|
+		0 1 2 3 4 5 6 7
+
+	The filters are:
+	 - from location 1 to 3 
+	 - from location 2 to 4
+	 - from location 5 to 8
+
+	where as:
+	 - window width is from [ to ] )
+	 - | represents boundary of each filter
+	 - _ represents 50% shade
+	 - # represents 100% shade
+
+TASK:
+	Write a program to determine the area of window that there is no filter at
+all and the area of 50% filtered.
+
+INPUT:
+	First line contains three integers W, H and n (1<=W<=3000, 1<=H<=10,
+1<=n<=100). The following n lines contain positions of curtains. Each line
+contains two integers x and a (0<=x<=W, 1<=a<=1000), where x is distance from
+left size of windows and a is the width of the curtains. In other words, the
+curtains will be filtered from position x to x+a, referred to the left size of
+windows.
+
+OUTPUT:
+	One line contains two integers separated by a blank. The first one indicates
+the area that is not filtered at all the other area is the area that filtered
+by 50%. 
+
+Example:
+	Input: 
+		7 3 3
+		1 2
+		5 3
+		2 2
+
+	Output:
+		6 12
