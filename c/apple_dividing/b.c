@@ -11,7 +11,7 @@ void swap(long *a, long* b){
 long gcd_calculate(long a, long b){
 	swap(&a,&b);
 	while(a>0 && b>0){
-		a-=b;
+		a%=b;
 		swap(&a,&b);
 		//printf("%ld %ld \n",a,b);
 	}
@@ -23,13 +23,15 @@ int main(int argc, char** argv){
 	char first;
 	r = atol(argv[1]);
 	g = atol(argv[2]);
+	if(r<1 || g<1){ return 0; } //invalid input, exit
+
 	printf("r=%ld g=%ld\n",r,g);
 	gcd = gcd_calculate(r,g);
 	printf("gcd(r,g)=%ld\n",gcd);
 
 	//loop: first half
 	max = gcd; 
-	for(i=1;i<max;i++){
+	for(i=1;i<=max;i++){
 		if(gcd%i==0) {
 			printf("%ld %ld %ld\n",i,r/i,g/i);
 			max = gcd/i;
