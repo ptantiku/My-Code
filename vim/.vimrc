@@ -149,4 +149,4 @@ if !exists( "*RubyEndToken" )
 		endif
 	endfunction
 endif
-imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
+autocmd FileType ruby imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
