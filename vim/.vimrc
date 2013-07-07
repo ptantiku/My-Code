@@ -4,6 +4,10 @@
 
 " using pathogen to load vim-bundles
 call pathogen#incubate()
+call pathogen#helptags()
+
+" Set color terminal
+set t_Co=256
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -150,3 +154,7 @@ if !exists( "*RubyEndToken" )
 	endfunction
 endif
 autocmd FileType ruby imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
+
+" For Airline status bar
+set laststatus=2
+let g:airline_theme='dark'

@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/var/www/webpra_ci/application/views/admin'
-let g:netrw_dirhist_2='/var/www/webpra_ci/application/views'
-let g:netrw_dirhist_3='/var/www/webpra_ci/application'
-let g:netrw_dirhist_4='/var/www/webpra_ci/application/views'
-let g:netrw_dirhist_5='/var/www/webpra_ci/application/views/admin'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/anidear/workspace/git/ptantiku/My-Code/vim'
+let g:netrw_dirhist_2='/home/anidear/workspace/finalproject_kmutnb/trunk/FinalProject'
+let g:netrw_dirhist_3='/home/anidear/workspace/finalproject_kmutnb/trunk/FinalProject/application'
+let g:netrw_dirhist_4='/home/anidear/workspace/finalproject_kmutnb/trunk/FinalProject/application/config'
+let g:netrw_dirhist_5='/home/anidear/workspace/git/ptantiku/My-Code/vim/.vim/bundle/vim-git-branch-info/plugin'
+let g:netrw_dirhist_6='/home/anidear/workspace/git/anidear/metasploit-framework'
+let g:netrw_dirhist_7='/home/anidear/workspace/git/anidear/metasploit-framework/config'
+let g:netrw_dirhist_8='/home/anidear/workspace/git/anidear/metasploit-framework'
+let g:netrw_dirhist_9='/home/anidear/workspace/git/anidear/metasploit-framework/config'
