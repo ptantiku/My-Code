@@ -120,6 +120,8 @@ au BufWritePost .vimrc so ~/.vimrc
 " Smash Escape (press jk together to switch to normal mode) 
 inoremap jk <Esc>
 inoremap kj <Esc>
+inoremap ่า <Esc>
+inoremap า่ <Esc>
 
 " Mapping H,L as Home, End
 noremap H ^
