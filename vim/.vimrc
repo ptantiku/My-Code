@@ -3,8 +3,18 @@
 "
 
 " using pathogen to load vim-bundles
-call pathogen#incubate()
-call pathogen#helptags()
+"call pathogen#incubate()
+"call pathogen#helptags()
+
+"nerdtree
+"vim-airline
+"vim-bundler
+"vim-easymotion
+"vim-endwise
+"vim-fugitive
+"vim-rails
+"vim-ruby
+
 
 " Set color terminal
 set t_Co=256
@@ -104,7 +114,8 @@ highlight SpecialKey guifg=#4a4a59
 " softtabstop=4 : set 4 width of spaces as tab
 " shiftwidth=4 : indent with < or > as width as 4
 " Ruby Rule: use tab=2
-set ts=2 sts=2 sw=2 noexpandtab
+" set ts=2 sts=2 sw=2 noexpandtab
+set ts=4 sts=4 sw=4 expandtab
 
 " Automatically reload vimrc when it's saved (from Vimbits)
 au BufWritePost .vimrc so ~/.vimrc
@@ -160,3 +171,7 @@ autocmd FileType ruby imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
 " For Airline status bar
 set laststatus=2
 let g:airline_theme='dark'
+
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
