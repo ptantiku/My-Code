@@ -1,20 +1,20 @@
-"
-" Original from: Bram Moolenaar <Bram@vim.org>
-"
+set nocompatible
+filetype off    " required
 
-" using pathogen to load vim-bundles
-"call pathogen#incubate()
-"call pathogen#helptags()
+"start loading vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-"nerdtree
-"vim-airline
-"vim-bundler
-"vim-easymotion
-"vim-endwise
-"vim-fugitive
-"vim-rails
-"vim-ruby
-
+" Let Vundle loads required packages
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-bundler'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
 
 " Set color terminal
 set t_Co=256
@@ -23,10 +23,6 @@ set t_Co=256
 if v:progname =~? "evim"
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -96,8 +92,8 @@ endif " has("autocmd")
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis \
+  | wincmd p | diffthis
 endif
 
 " ---- INVISIBLE CHARACTERS ----
@@ -128,7 +124,7 @@ au BufWritePost .vimrc so ~/.vimrc
 " nnoremap <silent> g* g*zz
 " nnoremap <silent> g# g#zz
 
-" Smash Escape (press jk together to switch to normal mode) 
+" Smash Escape (press jk together to switch to normal mode)
 inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap ่า <Esc>
@@ -150,21 +146,21 @@ map <f5> :w <CR>:!ruby % <CR>
 
 " Auto complete block for ruby
 if !exists( "*RubyEndToken" )
-	function RubyEndToken()
-		let current_line = getline( '.' )
-		let braces_at_end = '{\s*|\(,\|\s\|\w*|\s*\)\?$'
-		let stuff_without_do = '^\s*class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def'
-		let with_do = 'do\s*|\(,\|\s\|\w*|\s*\)\?$'
-		if match(current_line, braces_at_end) >= 0
-			return "\<CR>}\<C-O>O"
-		elseif match(current_line, stuff_without_do) >= 0
-			return "\<CR>end\<C-O>O"
-		elseif match(current_line, with_do) >= 0
-			return "\<CR>end\<C-O>O"
-		else
-			return "\<CR>"
-		endif
-	endfunction
+    function RubyEndToken()
+        let current_line = getline( '.' )
+        let braces_at_end = '{\s*|\(,\|\s\|\w*|\s*\)\?$'
+        let stuff_without_do = '^\s*class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def'
+        let with_do = 'do\s*|\(,\|\s\|\w*|\s*\)\?$'
+        if match(current_line, braces_at_end) >= 0
+            return "\<CR>}\<C-O>O"
+        elseif match(current_line, stuff_without_do) >= 0
+            return "\<CR>end\<C-O>O"
+        elseif match(current_line, with_do) >= 0
+            return "\<CR>end\<C-O>O"
+        else
+            return "\<CR>"
+        endif
+    endfunction
 endif
 autocmd FileType ruby imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
 
@@ -172,6 +168,7 @@ autocmd FileType ruby imap <buffer> <CR> <C-R>=RubyEndToken()<CR>
 set laststatus=2
 let g:airline_theme='dark'
 
+" For NerdTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
