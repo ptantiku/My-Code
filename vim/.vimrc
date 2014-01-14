@@ -16,6 +16,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
+Bundle 'mattn/emmet-vim'
 
 filetype plugin indent on   " required by vundle
 " Brief help
@@ -43,6 +44,14 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch   " do incremental searching
 set number      " set row number on
+
+" ------set tabwidth------
+" tabstop=4 : for 4 width by one tab character
+" softtabstop=4 : set 4 width of spaces as tab
+" shiftwidth=4 : indent with < or > as width as 4
+" Ruby Rule: use tab=2
+" set ts=2 sts=2 sw=2 noexpandtab
+set ts=4 sts=4 sw=4 expandtab
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -107,23 +116,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
-" ---- INVISIBLE CHARACTERS ----
-" for toggle between show invisible characters(tab,space) with \l
-nmap <leader>l :set list!<CR>
-" Replace invisible characters with
-set listchars=tab:▸\ ,eol:$,trail:~
-" set invisible characters color to barely visible
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-
-" ------set tabwidth------
-" tabstop=4 : for 4 width by one tab character
-" softtabstop=4 : set 4 width of spaces as tab
-" shiftwidth=4 : indent with < or > as width as 4
-" Ruby Rule: use tab=2
-" set ts=2 sts=2 sw=2 noexpandtab
-set ts=4 sts=4 sw=4 expandtab
-
 " Automatically reload vimrc when it's saved (from Vimbits)
 au BufWritePost .vimrc so ~/.vimrc
 
@@ -153,7 +145,7 @@ map <C-l> <C-W>l
 
 " ----------------FOR RUBY---------------------
 "  executing ruby script(when enable +ruby)
-map <f5> :w <CR>:!ruby % <CR>
+autocmd filetype ruby map <f5> :w <CR>:!ruby % <CR>
 
 " Auto complete block for ruby
 if !exists( "*RubyEndToken" )
@@ -186,3 +178,38 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Dictionary
 set dictionary=/usr/share/dict/america-english
 
+" Auto-remove trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+" set leader key from \ (default) to ,
+let mapleader=","
+let g:mapleader=","
+let g:EasyMotion_leader_key = '<Leader>'
+
+" ---- INVISIBLE CHARACTERS ----
+" for toggle between show invisible characters(tab,space) with \l
+nmap <Leader>l :set list!<CR>
+" Replace invisible characters with
+set listchars=tab:▸\ ,eol:$,trail:~
+" set invisible characters color to barely visible
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" Remove search result by :H
+command! H let @/=""
+
+" For Laravel by ptantiku
+command! -nargs=* Artisan !php artisan <args>
+" shortcut(command-abbreviate) for Laravel artisan, e.x. :am
+cabbr agc !php artisan generate:controller 
+cabbr agm !php artisan generate:model 
+cabbr agv !php artisan generate:view 
+cabbr am !php artisan migrate 
+cabbr amr !php artisan migrate:rollback
+cabbr lr :e app/routes.php<cr>
+cabbr lc :e app/controllers<cr>
+cabbr lm :e app/models<cr>
+cabbr lv :e app/views<cr>
+
+" shortcut(indert-abbreviate) for Bootstrap3
+iabbr glyp glyphicon
